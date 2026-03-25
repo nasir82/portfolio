@@ -4,8 +4,13 @@ import rehypeKatex from 'rehype-katex';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // 1. Enable Static Export
+  output: 'export', 
+  
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
+    // 2. Required for Static Export
+    unoptimized: true, 
     remotePatterns: [
       {
         protocol: 'https',
@@ -28,4 +33,3 @@ const withMDX = createMDX({
 });
 
 export default withMDX(nextConfig);
-
