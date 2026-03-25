@@ -1,0 +1,113 @@
+---
+title: "Optimizing Post-Quantum LWE Encryption for Large Image Data"
+date: "November 2025"
+conference: "B.Sc. Thesis, Shahjalal University of Science and Technology"
+tags: ["Post-Quantum Cryptography", "LWE", "Image Compression", "Strassen Algorithm", "Lattice Cryptography"]
+---
+
+# Optimizing Post-Quantum LWE Encryption for Large Image Data: An Integrated Compression and Algorithmic Acceleration Framework
+
+**Authors:** MD. Mehedi Hasan, Md. Nasir Uddin  
+**Supervisor:** A. K. M. Fakhrul Hossain, Lecturer, Department of CSE  
+**Institution:** Shahjalal University of Science and Technology, Sylhet, Bangladesh
+
+## Abstract
+
+Post-quantum cryptography (PQC) has a significant computational overhead because lattice-based methods, particularly Learning With Errors (LWE), require large matrix operations and the manipulation of high-dimensional data. This computational burden is further intensified when cryptographic systems operate on large-scale image data.
+
+We present a comprehensive hybrid cryptographic preprocessing and acceleration framework that integrates:
+- **Image compression techniques**: Run-Length Encoding (RLE), Huffman coding, YCbCr color space transformations with chroma subsampling
+- **Algorithmic acceleration**: Strassen's matrix multiplication algorithm
+
+### Key Results
+
+| Metric | Achievement |
+|--------|-------------|
+| Data Volume Reduction | **41.19%** average |
+| Compression Type | **Lossless** (PSNR = ∞) |
+| Security | Full post-quantum guarantees |
+
+## Background
+
+### Learning With Errors (LWE)
+
+The LWE problem forms the foundation of our encryption scheme. Given a secret vector $\mathbf{s} \in \mathbb{Z}_q^n$, the LWE distribution produces samples:
+
+$$
+(\mathbf{a}, b = \langle \mathbf{a}, \mathbf{s} \rangle + e) \in \mathbb{Z}_q^n \times \mathbb{Z}_q
+$$
+
+where $\mathbf{a}$ is uniformly random and $e$ is a small error term.
+
+### Color Space Conversion (YCbCr)
+
+Standard digital conversion from RGB to YCbCr:
+
+$$
+\begin{bmatrix} Y \\ Cb \\ Cr \end{bmatrix} = \begin{bmatrix} 0.299 & 0.587 & 0.114 \\ -0.169 & -0.331 & 0.500 \\ 0.500 & -0.419 & -0.081 \end{bmatrix} \begin{bmatrix} R \\ G \\ B \end{bmatrix} + \begin{bmatrix} 0 \\ 128 \\ 128 \end{bmatrix}
+$$
+
+### Strassen Matrix Multiplication
+
+Strassen's algorithm reduces matrix multiplication complexity from $O(n^3)$ to $O(n^{2.807})$:
+
+$$
+C = A \times B
+$$
+
+Using 7 multiplications instead of 8 for $2 \times 2$ submatrices.
+
+## Proposed Architecture
+
+### Pipeline Overview
+
+1. **RGB to YCbCr Conversion** - Color space transformation
+2. **Chroma Subsampling** - 4:2:0 subsampling for Cb/Cr channels
+3. **Three-Stage Lossless Encoding**:
+   - Differential Pulse Code Modulation (DPCM)
+   - Run-Length Encoding (RLE)
+   - Huffman Coding
+4. **LWE Encryption Core** - With plaintext batching
+5. **Strassen Matrix Multiplication** - Accelerated encryption
+
+### Compression Pipeline Results
+
+| Stage | Size Reduction |
+|-------|----------------|
+| YCbCr + Subsampling | ~50% |
+| DPCM | Variable |
+| RLE | Pattern-dependent |
+| Huffman | Entropy-optimal |
+| **Total** | **41.19% average** |
+
+## Experimental Results
+
+### Compression Ratios
+
+Tested across multiple image datasets with varying complexity:
+
+- High-frequency images: 30-35% reduction
+- Natural images: 40-45% reduction
+- Synthetic/uniform images: 50%+ reduction
+
+### Image Quality Verification
+
+All reconstructed images achieved:
+- **PSNR = ∞** (perfect reconstruction)
+- **SSIM = 1.0** (structural similarity)
+- **MSE = 0** (zero error)
+
+## Conclusion
+
+This framework establishes a practical and scalable paradigm for deploying quantum-resistant encryption on resource-constrained platforms. The successful unification of compression and cryptographic acceleration provides a powerful template for future PQC implementations.
+
+### Future Work
+
+- Extension to Ring-LWE and Module-LWE schemes
+- Hardware acceleration via FPGAs or GPUs
+- Real-time throughput optimization for high-volume data streams
+
+## Keywords
+
+LWE, Post-quantum cryptography, Run-length encoding, Huffman coding, Strassen algorithm, Color space transformation, Chroma subsampling, Image Compression, Lattice cryptography, DPCM, Cryptographic acceleration.
+

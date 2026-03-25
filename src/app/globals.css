@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Reducing this to 90% or 85% will shrink the entire 
+       UI globally, creating that "spaced out" look you saw at 75% zoom.
+    */
+    font-size: 75%; 
+  }
+
+  body {
+    @apply bg-[#0a0a0a] text-[#fafafa] font-sans antialiased overflow-x-hidden;
+    /* ... rest of your code */
+  }
+}
+
+@layer components {
+  /* Use this class for your Main Name to prevent overflow at 100% zoom */
+  .hero-name {
+    @apply font-bold tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+  }
+
+  /* Ensures the central content stays aligned regardless of zoom */
+  .layout-container {
+    @apply max-w-6xl mx-auto px-6 flex flex-col items-center text-center;
+  }
+}
+
+/* KaTeX styles for math rendering */
+@import "katex/dist/katex.min.css";

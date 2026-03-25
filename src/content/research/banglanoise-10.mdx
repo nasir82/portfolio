@@ -1,0 +1,104 @@
+---
+title: "BanglaNoise-10: A Diverse Audio Dataset for Machine Learning on Urban Environmental Noise in Bangladesh"
+date: "2025"
+conference: "Data in Brief (Under Review)"
+tags: ["Audio Dataset", "Machine Learning", "Urban Sound Classification", "Wav2Vec2", "Whisper", "Deep Learning"]
+---
+
+# BanglaNoise-10: A Diverse Audio Dataset for Machine Learning on Urban Environmental Noise in Bangladesh
+
+**Authors:** Md. Nasir Uddin, Md. Mehedi Hasan, and Mohammad Shahidur Rahman  
+**Affiliation:** Department of CSE, Shahjalal University of Science and Technology, Bangladesh
+
+## Abstract
+
+Urban environmental noise data are critical for developing and evaluating audio analysis systems, yet publicly available datasets reflecting real-world urban noise in Bangladesh are limited. This data article presents **BanglaNoise-10**, an environmental audio dataset supporting research on urban noise analysis and sound processing.
+
+### Dataset Specifications
+
+| Specification | Details |
+|--------------|---------|
+| Total Recordings | **5,035** |
+| Duration per clip | 10 seconds |
+| Format | WAV (16 kHz, mono) |
+| Categories | 10 urban noise classes |
+| License | CC BY 4.0 |
+
+## Dataset Classes
+
+The dataset covers ten urban noise categories commonly observed in Bangladeshi cities:
+
+1. **Bike** - Motorcycles, engine noise, acceleration, horn usage
+2. **Bus** - Engine sounds, barking, acceleration, terminal noise
+3. **Car** - Passenger vehicles, engine operation, horn usage
+4. **CNG Auto-rickshaw** - Distinctive South Asian transport sounds
+5. **Construction Noise** - Building sites, machinery
+6. **Protest** - Culturally specific protest acoustics
+7. **Siren** - Emergency vehicle sounds
+8. **Traffic Jam** - Multi-layered dense traffic
+9. **Train** - Railway sounds
+10. **Truck** - Heavy vehicle noise
+
+## Data Collection
+
+### Recording Devices
+- Samsung Galaxy S22 Ultra
+- Oppo A15
+- Realme C35
+
+### Collection Locations
+Data collected across multiple regions of Bangladesh:
+- Sylhet, Dhaka, Chattogram, Rajshahi
+- Khulna, Barishal, Rangpur, Mymensingh
+- Bandarban, Chandpur
+
+### Collection Period
+February - November 2025 (10 months)
+
+## Machine Learning Baselines
+
+### Model Performance
+
+| Model | Accuracy | F1-Score |
+|-------|----------|----------|
+| **Whisper-Base** | **98%** | High |
+| **Wav2Vec2-Base** | **97%** | High |
+| **CNN** | **90%** | Moderate |
+
+### Training Configuration
+
+**Wav2Vec2-Base:**
+- Raw 16 kHz mono audio waveforms
+- 10 epochs, AdamW optimizer
+- Learning rate: $2 \times 10^{-5}$
+- 80/20 stratified train-test split
+
+**Whisper-Base:**
+- Log-Mel spectrogram features
+- 10 epochs, AdamW optimizer
+- Learning rate: $3 \times 10^{-5}$
+
+## Value of the Data
+
+1. **First South Asian Dataset**: First publicly available, large-scale environmental noise dataset for Bangladesh
+2. **Unique Regional Signatures**: CNG auto-rickshaw, dense traffic jams, culturally specific protest acoustics
+3. **High Learnability**: 98% accuracy demonstrates strong class separability
+4. **Raw Format**: Unfiltered 16-bit WAV preserves full spectral content
+5. **Urban Computing Applications**: Smart-city analytics, noise monitoring, health impact studies
+
+## Data Availability
+
+- **Repository**: Zenodo
+- **DOI**: 10.5281/zenodo.8239067
+- **URL**: [https://zenodo.org/record/8239067](https://zenodo.org/record/8239067)
+
+## CRediT Author Statement
+
+- **Md. Nasir Uddin**: Data Collection, Preprocessing, Validation, Visualization
+- **Md. Mehedi Hasan**: Conceptualization, Data Curation, Software, Visualization, Writing—Original Draft
+- **Mohammad Shahidur Rahman**: Supervision, Project Administration, Resources
+
+## Keywords
+
+Urban sound dataset, Audio dataset, Bangladesh, Sound classification, Machine learning, Acoustic analysis, Wav2Vec2, Whisper, Deep learning
+
